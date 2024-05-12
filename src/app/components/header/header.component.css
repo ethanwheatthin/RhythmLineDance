@@ -1,0 +1,24 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+  }
+.header-color{
+    background-color: orange;
+    color: black;
+    font-weight: bold;
+}
+
+.logo{
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+}
