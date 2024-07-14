@@ -6,6 +6,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { MaterialModule } from 'src/material.module';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { SearchComponent } from './components/search/search/search.component';
+import { DanceApiService } from './services/dance-api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,9 +19,10 @@ import { SearchComponent } from './components/search/search/search.component';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DanceApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
