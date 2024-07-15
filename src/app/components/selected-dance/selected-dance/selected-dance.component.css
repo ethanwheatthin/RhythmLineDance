@@ -1,5 +1,6 @@
 .card{
     padding: 1.25em;
+    /* height: 60vh; */
     .title{
         font-size: 1.5rem;
         font-weight: 700;
@@ -9,5 +10,22 @@
         font-weight: 400;
         margin-bottom: 0.5rem;
         color: #6b7280;
+
+        .icons{
+            margin-bottom: 15px;
+        }
+        .labels{
+            color: black;
+            font-weight: bold;
+        }
     }
+    .steps{
+        white-space: pre-line;
+    }
+
+}
+
+mat-icon{
+    overflow: visible;
+    margin-right: 10px;
 }

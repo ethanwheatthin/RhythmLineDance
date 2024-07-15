@@ -5,9 +5,9 @@ const router = express.Router();
 
 router.get('/dances', async (req, res) => {
     try {
-      console.log("🚀 ~ router.get ~ dances:");
+      // console.log("🚀 ~ router.get ~ dances:");
       const dances = await DanceDetails.find().limit(20);
-      console.log("🚀 ~ router.get ~ dances result:", dances);
+      // console.log("🚀 ~ router.get ~ dances result:", dances);
       res.json(dances);
     } catch (err) {
       console.error("🚀 ~ router.get ~ error:", err);
@@ -17,7 +17,7 @@ router.get('/dances', async (req, res) => {
 
   router.get('/search', async (req, res) => {
     const searchTerm = req.query.term;
-    console.log("🚀 ~ router.get ~ searchTerm:", searchTerm)
+    // console.log("🚀 ~ router.get ~ searchTerm:", searchTerm)
     try {
       const dances = await DanceDetails.find({
         $or: [
@@ -47,18 +47,33 @@ router.get('/dances/:id', async (req, res) => {
   }
 });
 
-router.get('/random-dance', async (req, res) => {
-  console.log("🚀 ~ router.get ~ dance:", req)
+router.get('/dances/steps/:id/:danceId', async (req, res) => {
+  const { id, danceId } = req.params;
 
+  try {
+    const danceStep = await DanceDetails.findOne({ _id: id, DanceID: danceId }).select('dance_steps');
+
+    if (!danceStep) {
+      return res.status(404).send('Dance step not found');
+    }
+    // console.log("🚀 ~ router.get ~ danceStep:", danceStep)
+
+    res.json(danceStep);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
+router.get('/random-dance', async (req, res) => {
   try {
     const count = await DanceDetails.countDocuments();
     const random = Math.floor(Math.random() * count);
-    const dance = await DanceDetails.findOne().skip(random);
+    const dance = await DanceDetails.findOne().select('-dance_steps').skip(random);
 
     if (!dance) {
       return res.status(404).send('No dance found');
     }
-    console.log("🚀 ~ router.get ~ dance:", dance)
+    // console.log("🚀 ~ router.get ~ dance:", dance)
 
     res.json(dance);
   } catch (err) {

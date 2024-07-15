@@ -4,32 +4,50 @@
             {{this.selectedDance?.dance_name}}
         </mat-card-title>
         <mat-card-subtitle class="subtitle ">
+            <div id="Icons" class="flex layout-column icons">
+                <span class="flex layout-row layout-align-start-center">
+                    <mat-icon>
+                        assignment_ind
+                    </mat-icon>
+                    {{this.selectedDance?.choreographer}}
+                </span>
+                <span class="flex layout-row layout-align-start-center">
+                    <mat-icon>
+                        audiotrack
+                    </mat-icon>
+                    {{this.selectedDance?.music}}
+                </span>
+            </div>
+            
             <span class="flex layout-row layout-align-start-center">
+                <span class="labels">Count:</span>&nbsp;&nbsp;
+                {{this.selectedDance?.dance_count}}
+            </span>
+            <span class="flex layout-row layout-align-start-center">
+                <span class="labels">Wall:</span>&nbsp;&nbsp;
+                {{this.selectedDance?.dance_walls}}
+            </span>
+            <span class="flex layout-row layout-align-start-center">
+                <span class="labels">Difficulty:</span>&nbsp;&nbsp;
+                {{this.selectedDance?.level.toUpperCase()}}
+            </span>
+            <!-- <span class="flex layout-row layout-align-start-center">
                 <mat-icon>
-                    assignment_ind
+                    audiotrack
                 </mat-icon>
-                {{this.selectedDance?.choreographer}}
+                {{this.selectedDance?._id}}
             </span>
             <span class="flex layout-row layout-align-start-center">
                 <mat-icon>
                     audiotrack
                 </mat-icon>
-                {{this.selectedDance?.music}}
-            </span>
+                {{this.selectedDance?.DanceID}}
+            </span> -->
         </mat-card-subtitle>
         <mat-card-content>
-            <p-scrollPanel [style]="{ width: '100%', height: '150px' }">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-                <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-                    ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
-                </p>
-                <p class="m-0">
-                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
-                    officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+            <p-scrollPanel [style]="{ width: '100%', height: 'auto' }">
+                <p class="steps">
+                    {{ this.danceSteps}}
                 </p>
             </p-scrollPanel>
         </mat-card-content>

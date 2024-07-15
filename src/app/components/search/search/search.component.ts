@@ -32,6 +32,10 @@ export class SearchComponent implements OnInit {
 
   onDanceSelected(selectedDance){
     this.danceApiService.setActiveDance(selectedDance.value)
-    this.selectedDanceEmitter.emit(selectedDance.value)
+  }
+
+  clear(){
+    this.selectedItem = null;
+    this.danceApiService.clearActiveDance()
   }
 }

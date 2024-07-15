@@ -28,6 +28,9 @@ p-autocomplete {
     div > p-overlay > div > div > div{
         max-height: 380px !important;
     }
+    div > p-overlay > div > div > span {
+        visibility: hidden !important;
+      }
 }
 
 mat-icon{

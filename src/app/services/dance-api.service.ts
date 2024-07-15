@@ -32,6 +32,11 @@ export class DanceApiService {
     return this.http.get<any>(url);
   }
 
+  getDanceStepsByID(_id, DanceID): Observable<any> {
+    const url = this.serverURL + this.baseUrl + "steps/" + _id + "/" + DanceID
+    return this.http.get<any>(url);
+  }
+
   getRandomDance(): Observable<DanceDetails>{
     let url = this.serverURL + "/api/random-dance"
     return this.http.get<any>(url);
@@ -45,7 +50,12 @@ export class DanceApiService {
   setActiveDance(danceToBeSelected: DanceDetails){
     localStorage.setItem("SelectedDance", JSON.stringify(danceToBeSelected))
     this.selectedDance = danceToBeSelected;
-    this.selectedDanceSubject.next(this.selectedDance);  
+    this.selectedDanceSubject.next(danceToBeSelected);  
+  }
+
+  clearActiveDance(){
+    this.selectedDance = null;
+    this.selectedDanceSubject.next(null);  
   }
 
   getActiveDance() : Observable<DanceDetails>{
