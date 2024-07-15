@@ -1,5 +1,21 @@
-.header {
+
+.header-bar {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+  }
+  
+.header-color{
+    background-color: orange;
+    color: black;
+    font-weight: bold;
+}
+
+.fake-background{
     position: absolute;
+    background-color: orange;
+    height: 115px !important;
+    width: 100%;
     top: 0;
     left: 0;
     right: 0;
@@ -7,14 +23,7 @@
     padding: 5px;
     display: flex;
     align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-  }
-.header-color{
-    background-color: orange;
-    color: black;
-    font-weight: bold;
+    z-index: -1;
 }
 
 .logo{

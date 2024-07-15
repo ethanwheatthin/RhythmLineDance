@@ -29,9 +29,17 @@ router.get('/dances', async (req, res) => {
   router.get('/search', async (req, res) => {
     const searchTerm = req.query.term;
     console.log("🚀 ~ router.get ~ searchTerm:", searchTerm)
-  
     try {
-      const dances = await DanceDetails.find({ dance_name: { $regex: searchTerm, $options: 'i' } }).limit(20).exec();
+      const dances = await DanceDetails.find({
+        $or: [
+          { dance_name: { $regex: searchTerm, $options: 'i' } },
+          { music: { $regex: searchTerm, $options: 'i' } },
+          { choreographer: { $regex: searchTerm, $options: 'i' } }
+        ]
+      })
+      .select('-dance_steps')  // Exclude the dance_steps field
+      .limit(10)
+      .exec();      
       res.json(dances);
     } catch (err) {
       console.error('Error searching dances:', err);

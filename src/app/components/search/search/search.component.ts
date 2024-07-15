@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DanceApiService } from '../../../services/dance-api.service'; 
+import DanceDetails from 'src/app/models/dancedetails.model';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -8,7 +9,7 @@ import { DanceApiService } from '../../../services/dance-api.service';
 export class SearchComponent implements OnInit {
 
   items: any[] | undefined;
-  selectedItem: any;
+  selectedItem: DanceDetails = null;
   suggestions: any[] | undefined;
 
   constructor(private danceApiService: DanceApiService) {}

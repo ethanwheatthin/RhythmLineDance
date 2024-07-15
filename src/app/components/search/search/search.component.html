@@ -1,3 +1,24 @@
-<div class="flex layout-column layout-align-space-around-center" style="height: 275px; width: 100%; border: 1px solid black;">
-    <p-autoComplete placeholder="Search for a Dance" [(ngModel)]="selectedItem" [suggestions]="suggestions" (completeMethod)="search($event)"></p-autoComplete>
+<div class="flex layout-column layout-align-space-around-center bar-height">
+    <p-autoComplete class="flex layout-row layout-align-space-between-center" placeholder="Search for a Dance, Song, Choreographer..." [(ngModel)]="selectedItem" field="dance_name"  [suggestions]="suggestions" (completeMethod)="search($event)">
+        <ng-template let-dance pTemplate="item" class="flex-10">
+            <mat-card class="flex">
+                <mat-card-title class=" flex layout-column">
+                    <div class=" flex layout-column">
+                        <span class="header flex layout-row layout-align-start-end">
+                            {{ dance.dance_name }}
+                            
+                        </span>
+                        <span class="sub-header flex layuout-row layout-align-start-end">
+                            <mat-icon>assignment_ind</mat-icon>
+                        {{ dance.choreographer }}
+                        </span>
+                        <span class="sub-header flex layuout-row layout-align-start-end">
+                            <mat-icon>audiotrack</mat-icon>
+                            {{ dance.music }}
+                        </span>
+                    </div>
+                </mat-card-title>
+            </mat-card>
+        </ng-template>
+    </p-autoComplete>
 </div>

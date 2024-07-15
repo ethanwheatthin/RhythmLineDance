@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams  } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import DanceDetails from '../models/dancedetails.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class DanceApiService {
 
   private serverURL = "http://localhost:3000" 
   private baseUrl = '/api/dances/';
-  private searchUrl = '/api/search/';
+  private searchUrl = '/api/search';
 
   constructor(private http: HttpClient) { }
 
@@ -30,10 +31,11 @@ export class DanceApiService {
     return this.http.get<any>(url);
   }
 
-  //todo: here
-  searchDancesByName(query: string): Observable<any[]> {
-    const params = new HttpParams().set('term', query); // Adjust 'name' to your API's query parameter
-    return this.http.get<any[]>(`${this.serverURL}${this.searchUrl}`, { params });
+  searchDancesByName(query: string): Observable<DanceDetails[]> {
+    // const params = new HttpParams().set('term', query); // Adjust 'name' to your API's query parameter
+    let url = this.serverURL + this.searchUrl + "?term=" + query
+    console.log("🚀 ~ DanceApiService ~ searchDancesByName ~ url:", url)
+    return this.http.get<any>(url);
   }
 
 //   // Update a dance record
