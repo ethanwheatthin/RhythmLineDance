@@ -1,5 +1,11 @@
 <div class="flex layout-column layout-align-space-around-center bar-height">
-    <p-autoComplete class="flex layout-row layout-align-space-between-center" placeholder="Search for a Dance, Song, Choreographer..." [(ngModel)]="selectedItem" field="dance_name"  [suggestions]="suggestions" (completeMethod)="search($event)">
+    <p-autoComplete class="flex layout-row layout-align-space-between-center" 
+    placeholder="Search for a Dance, Song, Choreographer..." 
+    field="dance_name"  
+    [(ngModel)]="selectedItem" 
+    [suggestions]="suggestions" 
+    (completeMethod)="search($event)" 
+    (onSelect)="onDanceSelected($event)">
         <ng-template let-dance pTemplate="item" class="flex-10">
             <mat-card class="flex">
                 <mat-card-title class=" flex layout-column">

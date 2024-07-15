@@ -1,0 +1,13 @@
+.card{
+    padding: 1.25em;
+    .title{
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    .subtitle{
+        font-weight: 400;
+        margin-bottom: 0.5rem;
+        color: #6b7280;
+    }
+}

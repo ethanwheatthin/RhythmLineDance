@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams  } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import DanceDetails from '../models/dancedetails.model';
 
@@ -12,13 +12,14 @@ export class DanceApiService {
   private serverURL = "http://localhost:3000" 
   private baseUrl = '/api/dances/';
   private searchUrl = '/api/search';
+  private selectedDanceSubject: BehaviorSubject<DanceDetails>;
+  private selectedDance: DanceDetails;
 
-  constructor(private http: HttpClient) { }
 
-  // Create a new dance record
-//   createDance(danceData: any): Observable<any> {
-//     return this.http.post<any>(this.baseUrl, danceData);
-//   }
+  constructor(private http: HttpClient) { 
+    this.selectedDance = null;
+    this.selectedDanceSubject = new BehaviorSubject<DanceDetails>(this.selectedDance);
+  }
 
   // Read all dance records
   getAllDances(): Observable<any[]> {
@@ -31,22 +32,40 @@ export class DanceApiService {
     return this.http.get<any>(url);
   }
 
-  searchDancesByName(query: string): Observable<DanceDetails[]> {
-    // const params = new HttpParams().set('term', query); // Adjust 'name' to your API's query parameter
-    let url = this.serverURL + this.searchUrl + "?term=" + query
-    console.log("🚀 ~ DanceApiService ~ searchDancesByName ~ url:", url)
+  getRandomDance(): Observable<DanceDetails>{
+    let url = this.serverURL + "/api/random-dance"
     return this.http.get<any>(url);
   }
 
-//   // Update a dance record
-//   updateDance(id: string, danceData: any): Observable<any> {
-//     const url = `${this.baseUrl}${id}`;
-//     return this.http.put<any>(url, danceData);
-//   }
+  searchDancesByName(query: string): Observable<DanceDetails[]> {
+    let url = this.serverURL + this.searchUrl + "?term=" + query
+    return this.http.get<any>(url);
+  }
 
-//   // Delete a dance record
-//   deleteDance(id: string): Observable<any> {
-//     const url = `${this.baseUrl}${id}`;
-//     return this.http.delete<any>(url);
-//   }
+  setActiveDance(danceToBeSelected: DanceDetails){
+    localStorage.setItem("SelectedDance", JSON.stringify(danceToBeSelected))
+    this.selectedDance = danceToBeSelected;
+    this.selectedDanceSubject.next(this.selectedDance);  
+  }
+
+  getActiveDance() : Observable<DanceDetails>{
+    return this.selectedDanceSubject.asObservable();
+  }
+
+  //   // Update a dance record
+  //   updateDance(id: string, danceData: any): Observable<any> {
+  //     const url = `${this.baseUrl}${id}`;
+  //     return this.http.put<any>(url, danceData);
+  //   }
+
+  //   // Delete a dance record
+  //   deleteDance(id: string): Observable<any> {
+  //     const url = `${this.baseUrl}${id}`;
+  //     return this.http.delete<any>(url);
+  //   }
+
+  // Create a new dance record
+  //   createDance(danceData: any): Observable<any> {
+  //     return this.http.post<any>(this.baseUrl, danceData);
+  //   }
 }

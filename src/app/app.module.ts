@@ -4,22 +4,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MaterialModule } from 'src/material.module';
-import { AutoCompleteModule } from 'primeng/autocomplete';
 import { SearchComponent } from './components/search/search/search.component';
 import { DanceApiService } from './services/dance-api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SelectedDanceComponent } from './components/selected-dance/selected-dance/selected-dance.component';
+import { PrimeNGModule } from './primeng.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SearchComponent
+    SearchComponent,
+    SelectedDanceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    AutoCompleteModule,
+    PrimeNGModule,
     HttpClientModule
   ],
   providers: [DanceApiService],

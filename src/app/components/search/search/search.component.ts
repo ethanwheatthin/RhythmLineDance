@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { DanceApiService } from '../../../services/dance-api.service'; 
 import DanceDetails from 'src/app/models/dancedetails.model';
 @Component({
@@ -7,7 +7,8 @@ import DanceDetails from 'src/app/models/dancedetails.model';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-
+  
+  selectedDanceEmitter = new EventEmitter<DanceDetails>();
   items: any[] | undefined;
   selectedItem: DanceDetails = null;
   suggestions: any[] | undefined;
@@ -27,5 +28,10 @@ export class SearchComponent implements OnInit {
         console.error('Error fetching search results:', error);
       }
     );
+  }
+
+  onDanceSelected(selectedDance){
+    this.danceApiService.setActiveDance(selectedDance.value)
+    this.selectedDanceEmitter.emit(selectedDance.value)
   }
 }
