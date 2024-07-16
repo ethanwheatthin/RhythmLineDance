@@ -1,4 +1,3 @@
-// danceRoutes.js
 const express = require('express');
 const DanceDetails = require('./mongoose.js').DanceDetails;
 const router = express.Router();

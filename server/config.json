@@ -1,0 +1,16 @@
+{
+    "local": {
+        "host": "localhost",
+        "port": 27017,
+        "db": "RhythmLineDance",
+        "user": "",
+        "pw": ""
+    },
+    "prod": {
+        "host": "clusterrld.dzpx3bp.mongodb.net",
+        "port": 27017,
+        "db": "RhythmLineDance",
+        "user": "rld_app_user",
+        "pw": "Y38WigH2iIfjVI71"
+    }
+}
