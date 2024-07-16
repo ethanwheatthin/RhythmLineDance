@@ -1,8 +1,8 @@
 const express = require('express');
-const mongo = require('./mongoose')
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
+const mongodb = require('./mongoose'); // Import mongoose connection and models
 
 const danceRoutes = require('./dance-routes'); // Import the routes
 
@@ -26,12 +26,12 @@ app.use(limiter);
 
 const port = 3000;
 
+app.use('/api', danceRoutes);
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
-app.use('/api', danceRoutes);
 
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server running on port ${port}`);
 });

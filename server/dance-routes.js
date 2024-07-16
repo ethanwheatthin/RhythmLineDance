@@ -1,12 +1,11 @@
 const express = require('express');
+const { default: mongoose } = require('mongoose');
 const DanceDetails = require('./mongoose.js').DanceDetails;
 const router = express.Router();
 
 router.get('/dances', async (req, res) => {
     try {
-      // console.log("🚀 ~ router.get ~ dances:");
       const dances = await DanceDetails.find().limit(20);
-      // console.log("🚀 ~ router.get ~ dances result:", dances);
       res.json(dances);
     } catch (err) {
       console.error("🚀 ~ router.get ~ error:", err);
@@ -16,7 +15,6 @@ router.get('/dances', async (req, res) => {
 
   router.get('/search', async (req, res) => {
     const searchTerm = req.query.term;
-    // console.log("🚀 ~ router.get ~ searchTerm:", searchTerm)
     try {
       const dances = await DanceDetails.find({
         $or: [
@@ -36,9 +34,9 @@ router.get('/dances', async (req, res) => {
   });
 
 // Get a dance by ID
-router.get('/dances/:id', async (req, res) => {
+router.get('/dances/details/:danceid', async (req, res) => {
   try {
-    const dance = await DanceDetails.findById(req.params.id);
+    const dance = await DanceDetails.findOne({DanceID: req.params.danceid});
     if (!dance) return res.status(404).send('Dance not found');
     res.json(dance);
   } catch (err) {
@@ -46,16 +44,14 @@ router.get('/dances/:id', async (req, res) => {
   }
 });
 
-router.get('/dances/steps/:id/:danceId', async (req, res) => {
+router.get('/steps/:danceId', async (req, res) => {
   const { id, danceId } = req.params;
-
   try {
-    const danceStep = await DanceDetails.findOne({ _id: id, DanceID: danceId }).select('dance_steps');
+    const danceStep = await DanceDetails.findOne({ DanceID: parseInt(danceId) }).select('dance_steps');
 
     if (!danceStep) {
       return res.status(404).send('Dance step not found');
     }
-    // console.log("🚀 ~ router.get ~ danceStep:", danceStep)
 
     res.json(danceStep);
   } catch (err) {
@@ -72,7 +68,6 @@ router.get('/random-dance', async (req, res) => {
     if (!dance) {
       return res.status(404).send('No dance found');
     }
-    // console.log("🚀 ~ router.get ~ dance:", dance)
 
     res.json(dance);
   } catch (err) {

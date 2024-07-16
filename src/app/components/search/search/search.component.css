@@ -9,6 +9,11 @@
     color: black;
 }
 
+.close{
+    width: 20px;
+    font-size: 25px;
+}
+
 
 .bar-height {
     height: 150px;
