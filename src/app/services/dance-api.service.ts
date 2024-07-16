@@ -32,7 +32,7 @@ export class DanceApiService {
     return this.http.get<any>(url);
   }
 
-  getDanceStepsByID(_id, DanceID): Observable<any> {
+  getDanceStepsByID(DanceID): Observable<any> {
     const url = this.serverURL  + "/api/steps/" + DanceID
     return this.http.get<any>(url);
   }
@@ -48,11 +48,18 @@ export class DanceApiService {
   }
 
   setActiveDance(danceToBeSelected: DanceDetails){
+    let tempDanceID = danceToBeSelected.DanceID
+    let tempId = danceToBeSelected._id
+
     delete danceToBeSelected.DanceID
     delete danceToBeSelected._id
 
     localStorage.setItem("SelectedDance", JSON.stringify(danceToBeSelected))
+    
     this.selectedDance = danceToBeSelected;
+    this.selectedDance.DanceID = tempDanceID
+    this.selectedDance._id = tempId
+    
     this.selectedDanceSubject.next(danceToBeSelected);  
   }
 

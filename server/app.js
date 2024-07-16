@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const mongodb = require('./mongoose'); // Import mongoose connection and models
@@ -29,6 +30,11 @@ const port = 3000;
 app.use('/api', danceRoutes);
 app.get('/', (req, res) => {
   res.send('Hello, World!');
+});
+
+app.use(express.static(path.join(__dirname, 'dist/rld')));
+app.get('/rld', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/rld', 'index.html'));
 });
 
 

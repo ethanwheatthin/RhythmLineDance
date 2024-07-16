@@ -22,7 +22,7 @@
     "@angular/router": "^17.3.8",
     "@types/mongoose": "^5.11.97",
     "mongoose": "^8.5.1",
-    "primeng": "^17.18.0",
+    "primeng": "^17.18.4",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.5"

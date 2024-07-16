@@ -31,7 +31,7 @@ export class SelectedDanceComponent implements OnInit, OnChanges {
   }
 
   getDanceSteps(_id, DanceID){
-    this.danceApiService.getDanceStepsByID(_id, DanceID).subscribe(resp => {
+    this.danceApiService.getDanceStepsByID(DanceID).subscribe(resp => {
       console.log("🚀 ~ SelectedDanceComponent ~ this.danceApiService.getDanceStepsByID ~ resp:", resp)
       this.danceSteps = resp.dance_steps
     })
