@@ -43,4 +43,4 @@ src/app/app.config.ts
 Thumbs.db
 src/app/app.config.ts
 server/notes.txt
-server/config.jsonc
+server/config.json
