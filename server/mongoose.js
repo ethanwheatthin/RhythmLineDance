@@ -1,4 +1,3 @@
-// mongoose.js
 const mongoose = require('mongoose');
 
 // Replace with your MongoDB connection string
@@ -14,11 +13,9 @@ db.once('open', () => {
 });
 db.on('error', console.error.bind(console, 'connection error:'));
 
-// Define a schema for the collection
 const danceDetailsSchema = require('./models/dance-details');
 const DanceDetails = mongoose.model('DanceDetails', danceDetailsSchema);
 
-// Export the model
 module.exports = {
   db,
   DanceDetails
