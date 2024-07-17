@@ -1,0 +1,52 @@
+<div class="flex layout-column">
+    <div class="flex layout-column">
+        <form class="flex layout-column" [formGroup]="danceForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="form-field" appearance="outline">
+                <input matInput placeholder="Dance Name" formControlName="dance_name" required>
+                <mat-error class="warn" *ngIf="danceForm.get('dance_name').hasError('required')">
+                  Dance Name is required
+                </mat-error>
+              </mat-form-field>
+    
+              <mat-form-field class="form-field" appearance="outline">
+                <input matInput placeholder="Choreographer" formControlName="choreographer" required>
+                <mat-error class="warn" *ngIf="danceForm.get('choreographer').hasError('required')">
+                  Choreographer is required
+                </mat-error>
+              </mat-form-field>
+    
+              <mat-form-field class="form-field" appearance="outline">
+                <input matInput placeholder="Music" formControlName="music" required>
+                <mat-error class="warn" *ngIf="danceForm.get('music').hasError('required')">
+                  Music is required
+                </mat-error>
+              </mat-form-field>
+          
+            <mat-form-field class="form-field" appearance="outline">
+              <input matInput placeholder="Dance Count" formControlName="dance_count" required>
+              <mat-error class="warn" *ngIf="danceForm.get('dance_count').hasError('required')">
+                Dance Count is required
+              </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field class="form-field" appearance="outline">
+                <input matInput placeholder="Dance Walls" formControlName="dance_walls" required>
+                <mat-error class="warn" *ngIf="danceForm.get('dance_walls').hasError('required')">
+                  Dance Walls is required
+                </mat-error>
+              </mat-form-field>
+          
+            <mat-form-field class="form-field" appearance="outline">
+                <input matInput placeholder="Level" formControlName="level" required>
+                <mat-error class="warn" *ngIf="danceForm.get('level').hasError('required')">
+                  Level is required
+                </mat-error>
+              </mat-form-field>
+          
+              <div class="flex form-field layout-column layout-align-space-between-stretch">
+                <p-editor formControlName="dance_steps" [style]="{ height: '200px' }"></p-editor>
+              </div>
+          </form>
+    </div>
+    <button mat-raised-button color="primary" type="submit" [disabled]="danceForm.invalid == true" (click)="onSubmit()">Submit</button>
+</div>

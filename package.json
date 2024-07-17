@@ -21,8 +21,10 @@
     "@angular/platform-browser-dynamic": "^17.3.8",
     "@angular/router": "^17.3.8",
     "@types/mongoose": "^5.11.97",
+    "bson": "^6.8.0",
     "mongoose": "^8.5.1",
     "primeng": "^17.18.4",
+    "quill": "^2.0.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.5"

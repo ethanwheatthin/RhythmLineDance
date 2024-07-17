@@ -42,6 +42,21 @@ export class DanceApiService {
     return this.http.get<any>(url);
   }
 
+  generateObjectId(): string {
+    let counterOne = Math.floor(Math.random() * 0xffffff);
+    const pid = Math.floor(Math.random() * 0xffff).toString(16).padStart(4, '0');
+    const machine = Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, '0');
+    
+    const timestamp = Math.floor(Date.now() / 1000).toString(16).padStart(8, '0');
+    const counter = (counterOne = (counterOne + 1) % 0xffffff).toString(16).padStart(6, '0');
+    return timestamp + machine + pid + counter;
+  }
+
+  sendEmail(newDance: DanceDetails){
+    let url = this.serverURL + "/api/send-email" 
+    return this.http.post(url, newDance).subscribe();
+  }
+
   searchDancesByName(query: string): Observable<DanceDetails[]> {
     let url = this.serverURL + this.searchUrl + "?term=" + query
     return this.http.get<any>(url);

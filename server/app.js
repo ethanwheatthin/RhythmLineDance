@@ -8,9 +8,9 @@ require('dotenv').config();
 let env = process.env.NODE_ENV || 'local'
 console.log(`Your environment is set to ${env}`);
 
-const mongodb = require('./mongoose'); // Import mongoose connection and models
-
-const danceRoutes = require('./dance-routes'); // Import the routes
+const mongodb = require('./mongoose');
+const danceRoutes = require('./dance-routes'); 
+const emailRoute = require('./emailer');
 
 const app = express();
 const corsOptions = {
@@ -38,6 +38,7 @@ app.use(limiter);
 const port = 3000;
 
 app.use('/api', danceRoutes);
+app.use('/api', emailRoute)
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });

@@ -1,7 +1,7 @@
 import { Types } from 'mongoose';
 
 class DanceDetails {
-  _id: Types.ObjectId;
+  _id: string;
   music_lower: string;
   dance_count: string;
   dance_name_lower: string;
@@ -16,7 +16,7 @@ class DanceDetails {
   level_lower: string;
 
   constructor(
-    _id: Types.ObjectId,
+    _id: string,
     music_lower: string,
     dance_count: string,
     dance_name_lower: string,

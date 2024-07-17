@@ -10,13 +10,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { SelectedDanceComponent } from './components/selected-dance/selected-dance/selected-dance.component';
 import { PrimeNGModule } from './primeng.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DanceFormComponent } from './components/dance-form/dance-form/dance-form.component';
+import { HomeComponent } from './components/home/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchComponent,
-    SelectedDanceComponent
+    SelectedDanceComponent,
+    DanceFormComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
