@@ -1,12 +1,12 @@
 
 .header-bar {
-    background-color: #1976d2;
+    /* background-color: #1976d2; */
     color: white;
     font-weight: 600;
   }
   
 .header-color{
-    background-color: orange;
+    /* background-color: orange; */
     color: black;
     font-weight: bold;
 }
@@ -14,7 +14,7 @@
 .fake-background{
     position: absolute;
     background-color: orange;
-    height: 115px !important;
+    height: inherit !important;
     width: 100%;
     top: 0;
     left: 0;

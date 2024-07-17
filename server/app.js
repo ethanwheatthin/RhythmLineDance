@@ -3,6 +3,11 @@ const cors = require('cors');
 const path = require('path');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
+
+require('dotenv').config();
+let env = process.env.NODE_ENV || 'local'
+console.log(`Your environment is set to ${env}`);
+
 const mongodb = require('./mongoose'); // Import mongoose connection and models
 
 const danceRoutes = require('./dance-routes'); // Import the routes
@@ -13,6 +18,7 @@ const corsOptions = {
   optionsSuccessStatus: 200 
 };
 
+
 app.use(helmet());
 app.use(cors(corsOptions));
 app.use(express.json());
@@ -20,7 +26,11 @@ app.use(express.json());
 // Rate Limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
+  max: 100, // limit each IP to 100 requests per windowMs,
+  handler: (req, res) => {
+    console.log(`Rate limit exceeded for IP: ${req.ip}`);
+    res.status(429).send('Too Many Requests');
+  },
 });
 app.use(limiter);
 
@@ -32,8 +42,10 @@ app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
+
 app.use(express.static(path.join(__dirname, 'dist/rld')));
 app.get('/rld', (req, res) => {
+  console.log("🚀", path.join(__dirname, 'dist/rld', 'index.html'))
   res.sendFile(path.join(__dirname, 'dist/rld', 'index.html'));
 });
 

@@ -9,6 +9,7 @@ import { DanceApiService } from './services/dance-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SelectedDanceComponent } from './components/selected-dance/selected-dance/selected-dance.component';
 import { PrimeNGModule } from './primeng.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PrimeNGModule } from './primeng.module';
     AppRoutingModule,
     MaterialModule,
     PrimeNGModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [DanceApiService],
   bootstrap: [AppComponent]

@@ -45,3 +45,5 @@ src/app/app.config.ts
 server/notes.txt
 server/config.json
 server/dist
+start-prod.bat
+start-local.bat
