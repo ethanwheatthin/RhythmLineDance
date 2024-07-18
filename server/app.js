@@ -44,6 +44,7 @@ app.get('/', (req, res) => {
 });
 
 
+
 app.use(express.static(path.join(__dirname, 'dist/rld')));
 app.get('/rld', (req, res) => {
   console.log("🚀", path.join(__dirname, 'dist/rld', 'index.html'))

@@ -4,11 +4,11 @@ import { DanceFormComponent } from './components/dance-form/dance-form/dance-for
 import { HomeComponent } from './components/home/home/home.component';
 
 const routes: Routes = [
-  {
-    path: 'new-dance', 
-    component: DanceFormComponent, 
-    data: { title: 'New Dance Form' }
-  },
+  // {
+  //   path: 'new-dance', 
+  //   component: DanceFormComponent, 
+  //   data: { title: 'New Dance Form' }
+  // },
   {
     path: '**', 
     component: HomeComponent  // This component should handle 404 Not Found scenarios

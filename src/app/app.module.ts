@@ -30,7 +30,8 @@ import { HomeComponent } from './components/home/home/home.component';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [DanceApiService],
+  providers: [DanceApiService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

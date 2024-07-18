@@ -16,6 +16,7 @@ export class SearchComponent implements OnInit {
   constructor(private danceApiService: DanceApiService) {}
 
   ngOnInit(): void {
+    this.fixWidth();
   }
 
   search(event: any) {
@@ -28,6 +29,14 @@ export class SearchComponent implements OnInit {
         console.error('Error fetching search results:', error);
       }
     );
+  }
+
+  fixWidth(){
+    // Select the specific stylesheet
+    var stylesheet = document.styleSheets[6];
+    var newRule = ".p-autocomplete { eidth: 100%; }";
+    stylesheet.insertRule(newRule, stylesheet.cssRules.length);
+    console.log(document.styleSheets[6])
   }
 
   onDanceSelected(selectedDance){

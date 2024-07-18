@@ -36,6 +36,12 @@ export class SelectedDanceComponent implements OnInit, OnChanges {
       this.danceSteps = resp.dance_steps
     })
   }
+  
+  goToVideo(dance: DanceDetails){
+    const query = `${dance.dance_name} Line Dance`;
+    const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+    window.open(url, '_blank');
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     

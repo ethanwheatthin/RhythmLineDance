@@ -1,18 +1,23 @@
 <div class="flex layout-column layout-align-space-around-stretch">
     <mat-card *ngIf="this.selectedDance != null" appearance="outlined" class="card">
         <mat-card-title class="title">
-            {{this.selectedDance?.dance_name}}
+            <div class="flex layout-row layout-align-start-center">
+                <span>
+                    {{this.selectedDance?.dance_name}}
+                </span>
+                <mat-icon (click)="this.goToVideo(this.selectedDance)" class="video pointer">smart_display</mat-icon>
+            </div>
         </mat-card-title>
         <mat-card-subtitle class="subtitle ">
             <div id="Icons" class="flex layout-column icons">
                 <span class="flex layout-row layout-align-start-center">
-                    <mat-icon>
+                    <mat-icon class="badges">
                         assignment_ind
                     </mat-icon>
                     {{this.selectedDance?.choreographer}}
                 </span>
                 <span class="flex layout-row layout-align-start-center">
-                    <mat-icon>
+                    <mat-icon class="badges">
                         audiotrack
                     </mat-icon>
                     {{this.selectedDance?.music}}

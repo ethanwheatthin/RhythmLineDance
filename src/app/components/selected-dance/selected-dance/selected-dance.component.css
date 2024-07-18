@@ -1,5 +1,6 @@
 .card{
     padding: 1.25em;
+    padding-top: 0.8em;
     /* height: 60vh; */
     .title{
         font-size: 1.5rem;
@@ -25,7 +26,17 @@
 
 }
 
-mat-icon{
+.video{
+    color: red;
+    overflow: visible;
+    font-size: 35px;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 20px;
+}
+
+.badges{
     overflow: visible;
     margin-right: 10px;
 }
+
