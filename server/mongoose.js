@@ -1,5 +1,23 @@
-const config = require('./config.json')
 const mongoose = require('mongoose');
+require('dotenv').config();
+
+const config = {
+  "local": {
+      "host": "localhost",
+      "port": 27017,
+      "db": "RhythmLineDance",
+      "user": process.env.DB_USER_LOCAL || "",
+      "pw": process.env.DB_PASS_LOCAL || ""
+  },
+  "prod": {
+      "host": "clusterrld.dzpx3bp.mongodb.net",
+      "db": "RhythmLineDance",
+      user: process.env.DB_USER_PROD || "USERNAME",
+      pw: process.env.DB_PASS_PROD || "PASSWORD"
+  }
+}
+
+
 const env = process.env.NODE_ENV || 'local'
 const dbConfig = config[env.trim()];
 
@@ -11,6 +29,7 @@ if (env.trim() === "local") {
   console.log("Config is prod!")
   uri = `mongodb+srv://${dbConfig.user}:${dbConfig.pw}@${dbConfig.host}/${dbConfig.db}`;
 }
+
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
