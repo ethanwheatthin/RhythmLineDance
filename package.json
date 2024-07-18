@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "NODE_ENV=prod node ./server/app.js",
-    "build": "ng build --configuration production --output-path=./server/dist/rld",
-    "heroku-postbuild": "npm run build",
+    "start": "node ./server/app.js",
+    "build": "ng build --configuration production",
+    "heroku-postbuild": "npm run build; heroku config:set NODE_ENV=prod; npm start",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
