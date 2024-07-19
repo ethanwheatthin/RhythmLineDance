@@ -10,13 +10,9 @@
     color: black;
 }
 
-.close{
+.close {
     width: 20px;
     font-size: 25px;
-}
-
-.search-width{
-    width: 100%;
 }
 
 
@@ -24,26 +20,33 @@
     height: 150px;
 }
 
-    p-autocomplete .p-autocomplete {
+.search-width {
+    width: 100%;
+}
+
+p-autoComplete {
+    width: 100% !important;
+
+    div:first-of-type {
         width: 100% !important;
-    
-        :is(div) {
+
+        input:first-of-type {
             width: 100% !important;
-    
-            input:first-of-type {
-                width: 100% !important;
-            }
-          }
-    
-        div > p-overlay > div > div > div{
-            max-height: 380px !important;
         }
-        div > p-overlay > div > div > span {
-            visibility: hidden !important;
-          }
+
+       
     }
 
+    p-autocomplete > div > p-overlay{
+        width: 100% !important;
+    }
 
-mat-icon{
+    div>p-overlay>div>div>span {
+        visibility: hidden !important;
+    }
+}
+
+
+mat-icon {
     overflow: visible !important;
 }
