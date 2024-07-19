@@ -31,6 +31,17 @@
             "scripts": []
           },
           "configurations": {
+            "local": {
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": false
+              },
+              "outputHashing": "all"
+            },
             "production": {
               "budgets": [
                 {
@@ -56,7 +67,7 @@
                   "minify": true,
                   "inlineCritical": false
                 },
-                "fonts": true
+                "fonts": false
               },
               "outputHashing": "all"
             },

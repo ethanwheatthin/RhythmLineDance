@@ -15,6 +15,10 @@
     font-size: 25px;
 }
 
+.search-width{
+    width: 100%;
+}
+
 
 .bar-height {
     height: 150px;

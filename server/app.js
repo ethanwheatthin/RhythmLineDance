@@ -27,6 +27,14 @@ app.use(express.json());
 // Trust the first proxy in the chain (Heroku)
 app.set('trust proxy', 1);
 
+
+app.use((req, res, next) => {
+  res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self' 'sha256-JJI3er0EzpuR5a8Fdhhm+e2RJJmFdoZCLiCEBvZZt2k='");
+  next();
+});
+
+
+
 // Rate Limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -44,7 +52,8 @@ const port = process.env.PORT || 3000;
 app.use('/api', danceRoutes);
 app.use('/api', emailRoute)
 app.get('/', (req, res) => {
-  res.send('Hello, World!');
+  // res.send('Hello, World!');
+  res.sendFile(path.join(__dirname, 'dist/rld', 'index.html'));
 });
 
 
