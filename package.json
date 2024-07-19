@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "node server/app.js",
     "build": "ng build --configuration production",
-    "heroku-postbuild": "npm run build; cd server; npm i -f ;npm start",
+    "heroku-postbuild": "npm run build; cd server; npm install -f",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
