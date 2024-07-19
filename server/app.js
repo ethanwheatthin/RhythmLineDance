@@ -44,17 +44,17 @@ const port = process.env.PORT || 3000;
 app.use('/api', danceRoutes);
 app.use('/api', emailRoute)
 app.get('/', (req, res) => {
-  res.send('Hello, World!');
-  // res.sendFile(path.join(__dirname, 'dist/rld', 'index.html'));
+  // res.send('Hello, World!');
+  res.sendFile(path.join(__dirname, 'dist/rld', 'index.html'));
 });
 
 
 
 app.use(express.static(path.join(__dirname, 'dist/rld')));
-app.get('/rld', (req, res) => {
-  console.log("🚀", path.join(__dirname, 'dist/rld', 'index.html'))
-  res.sendFile(path.join(__dirname, 'dist/rld', 'index.html'));
-});
+// app.get('/rld', (req, res) => {
+//   console.log("🚀", path.join(__dirname, 'dist/rld', 'index.html'))
+//   res.sendFile(path.join(__dirname, 'dist/rld', 'index.html'));
+// });
 
 
 app.listen(port, () => {
