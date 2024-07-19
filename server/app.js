@@ -21,8 +21,14 @@ const corsOptions = {
 };
 
 
-app.use(helmet());
-app.use(cors(corsOptions));
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      connectSrc: ["'self'", "http://localhost:3000"]
+    }
+  }
+}));app.use(cors(corsOptions));
 app.use(express.json());
 // Trust the first proxy in the chain (Heroku)
 app.set('trust proxy', 1);
