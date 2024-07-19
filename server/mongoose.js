@@ -9,7 +9,7 @@ const config = {
       "user": process.env.DB_USER_LOCAL || "",
       "pw": process.env.DB_PASS_LOCAL || ""
   },
-  "prod": {
+  "production": {
       "host": "clusterrld.dzpx3bp.mongodb.net",
       "db": "RhythmLineDance",
       "user": process.env.DB_USER_PROD || "USERNAME",

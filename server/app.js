@@ -24,6 +24,8 @@ const corsOptions = {
 app.use(helmet());
 app.use(cors(corsOptions));
 app.use(express.json());
+// Trust the first proxy in the chain (Heroku)
+app.set('trust proxy', 1);
 
 // Rate Limiting
 const limiter = rateLimit({
