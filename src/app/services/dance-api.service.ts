@@ -3,13 +3,14 @@ import { HttpClient, HttpParams  } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import DanceDetails from '../models/dancedetails.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DanceApiService {
 
-  private serverURL = "http://localhost:3000" 
+  private serverURL = environment.serverUrl
   private baseUrl = '/api/dances/';
   private searchUrl = '/api/search';
   private selectedDanceSubject: BehaviorSubject<DanceDetails>;
