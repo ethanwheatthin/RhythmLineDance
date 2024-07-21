@@ -35,6 +35,14 @@
     padding-left: 20px;
 }
 
+.label-buffer-left{
+    margin-left: 10px;
+}
+
+.label-buffer-right{
+    margin-right: 5px;
+}
+
 .badges{
     overflow: visible;
     margin-right: 10px;

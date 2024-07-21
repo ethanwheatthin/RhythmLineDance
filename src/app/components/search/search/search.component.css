@@ -11,13 +11,14 @@
 }
 
 .close {
-    width: 20px;
-    font-size: 25px;
+    width: 30px;
+    font-size: 30px;
+    margin-top: 5px;
 }
 
 
 .bar-height {
-    height: 150px;
+    height: 100px;
 }
 
 .search-width {
@@ -33,15 +34,12 @@ p-autoComplete {
         input:first-of-type {
             width: 100% !important;
         }
-
-       
+    }
+    p-overlay > div > div > div{
+        max-height: 300px !important;
     }
 
-    p-autocomplete > div > p-overlay{
-        width: 100% !important;
-    }
-
-    div>p-overlay>div>div>span {
+    p-overlay>div>div>span {
         visibility: hidden !important;
     }
 }
