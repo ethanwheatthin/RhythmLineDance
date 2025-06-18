@@ -1,17 +1,18 @@
+@import "../../../shared/flex-custom.css";
 
 .header-bar {
     /* background-color: #1976d2; */
     color: white;
     font-weight: 600;
-  }
-  
-.header-color{
+}
+
+.header-color {
     /* background-color: orange; */
     color: black;
     font-weight: bold;
 }
 
-.fake-background{
+.fake-background {
     position: absolute;
     background-color: orange;
     height: 100px !important;
@@ -26,17 +27,28 @@
     z-index: -1;
 }
 
-.logo{
+.logo {
     max-height: 100px;
     max-width: 100px;
     cursor: pointer;
     object-fit: contain;
 }
 
-.special-font{
-    font-family: Playwrite HU, cursive;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-    color: #f2f1e3;
+.header {
+    background-color: orange;
+    height: 100px !important;
+    width: 100%;
+    .special-font {
+        font-family: Playwrite HU, cursive;
+        font-optical-sizing: auto;
+        font-weight: 300;
+        font-style: normal;
+        color: #f2f1e3;
+    }
+}
+
+
+
+.nowrap {
+    white-space: nowrap;
 }

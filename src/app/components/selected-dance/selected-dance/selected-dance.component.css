@@ -48,3 +48,14 @@
     margin-right: 10px;
 }
 
+.no-dance-card{
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    background-color: #ececec;
+    max-width: 500px;
+    h4{
+            margin-top: 0px;
+    }
+
+}
+

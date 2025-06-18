@@ -24,7 +24,7 @@ router.get('/dances', async (req, res) => {
         ]
       })
       .select('-dance_steps')  // Exclude the dance_steps field
-      .limit(10)
+      .limit(15)
       .exec();      
       res.json(dances);
     } catch (err) {

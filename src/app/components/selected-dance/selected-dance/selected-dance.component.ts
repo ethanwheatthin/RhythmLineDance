@@ -14,9 +14,9 @@ export class SelectedDanceComponent implements OnInit, OnChanges {
   constructor(private danceApiService: DanceApiService){}
 
   ngOnInit(): void {
-    this.danceApiService.getRandomDance().subscribe(resp => {
-      this.setDance(resp)
-    })
+    // this.danceApiService.getRandomDance().subscribe(resp => {
+    //   this.setDance(resp)
+    // })
 
     this.danceApiService.getActiveDance().subscribe(resp => {
       this.setDance(resp)
